@@ -844,4 +844,120 @@ blockquote.quote-large {
 </p><p id="1827568c-2746-81ee-8a07-cbdaa262ed72" class="" dir="auto">
 </p><hr id="1827568c-2746-8108-993c-d25b34e50bd5" dir="auto"/><p id="1827568c-2746-8113-bece-dc7838315c09" class="block-color-gray_background" data-notion-highlight="gray_background" dir="auto">
 </p></div><nav style="margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid rgba(55, 53, 47, 0.12);"><a href="../index.html" style="display: inline-flex; align-items: center; gap: 0.4em; padding: 0.35em 0.75em; border-radius: 6px; background: rgba(55, 53, 47, 0.06); color: rgb(55, 53, 47); text-decoration: none; font-size: 0.9rem; font-weight: 500;">← Voltar a Canções, Peças, Ritmos</a></nav>
-</article><span class="sans" style="font-size:14px;padding-top:2em"></span></body></html>
+</article><span class="sans" style="font-size:14px;padding-top:2em"></span><style>
+  @media (min-width: 1180px) {
+    .floating-toc {
+      position: fixed;
+      top: 2rem;
+      right: max(1rem, calc((100vw - 900px) / 2 - 245px));
+      width: 220px;
+      max-height: calc(100vh - 4rem);
+      overflow-y: auto;
+      background: #fbfbfa;
+      border: 1px solid rgba(55, 53, 47, 0.12);
+      border-radius: 8px;
+      padding: 0.85rem 1rem;
+      font-size: 0.82rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+      z-index: 100;
+    }
+    .floating-toc summary {
+      list-style: none;
+      cursor: default;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: rgb(55, 53, 47);
+    }
+    .floating-toc summary::-webkit-details-marker { display: none; }
+  }
+  @media (max-width: 1179px) {
+    .floating-toc {
+      margin: 1rem 0 1.5rem;
+      background: #fbfbfa;
+      border: 1px solid rgba(55, 53, 47, 0.12);
+      border-radius: 8px;
+      padding: 0.65rem 0.9rem;
+      font-size: 0.875rem;
+    }
+    .floating-toc summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: rgb(55, 53, 47);
+    }
+  }
+  .floating-toc ul {
+    list-style: none;
+    padding: 0;
+    margin: 0.4rem 0 0;
+  }
+  .floating-toc li {
+    padding: 0;
+    margin: 0.15rem 0;
+    list-style: none;
+  }
+  .floating-toc a {
+    display: block;
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    text-decoration: none;
+    color: rgba(55, 53, 47, 0.78);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background 0.15s, color 0.15s;
+  }
+  .floating-toc a:hover,
+  .floating-toc a.active {
+    background: rgba(55, 53, 47, 0.08);
+    color: rgb(55, 53, 47);
+    font-weight: 600;
+  }
+  html { scroll-behavior: smooth; }
+</style>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const headings = Array.from(document.querySelectorAll(".page-body h3"));
+  if (headings.length < 2) return;
+
+  const details = document.createElement("details");
+  details.className = "floating-toc";
+  if (window.innerWidth >= 1180) details.open = true;
+
+  const summary = document.createElement("summary");
+  summary.textContent = "🎵 Índice (" + headings.length + ")";
+  details.appendChild(summary);
+
+  const ul = document.createElement("ul");
+  const links = [];
+
+  headings.forEach((h, i) => {
+    const text = h.textContent.trim();
+    if (!text || text.startsWith("—")) return;
+    if (!h.id) h.id = "song-" + i;
+
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+    a.href = "#" + h.id;
+    a.textContent = text;
+    a.title = text;
+    li.appendChild(a);
+    ul.appendChild(li);
+    links.push({ heading: h, link: a });
+  });
+
+  if (links.length < 2) return;
+  details.appendChild(ul);
+
+  const pageBody = document.querySelector(".page-body");
+  pageBody.parentNode.insertBefore(details, pageBody);
+
+  window.addEventListener("scroll", () => {
+    let current = links[0];
+    for (const item of links) {
+      if (item.heading.getBoundingClientRect().top <= 120) current = item;
+    }
+    links.forEach(item => item.link.classList.toggle("active", item === current));
+  }, { passive: true });
+});
+</script>
+</body></html>
