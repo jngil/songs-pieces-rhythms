@@ -24,4 +24,4 @@ All original compositions, recordings, and sheet music shared here are **free to
 
 ## ✉️ Contacto / Contact
 
-Para questões, comentários ou partilha de experiências pedagógicas: **jngilx@gmail.com**
+Para questões, comentários ou partilha de experiências pedagógicas: **zenagi@gmail.com**
