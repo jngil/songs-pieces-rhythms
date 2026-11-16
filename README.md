@@ -14,6 +14,14 @@ Arquivo digital de canções originais, arranjos, peças instrumentais, ritmos e
 
 ---
 
-## © Direitos de Autor / Copyright
+## 🔓 Licença / License (CC0 1.0 Public Domain)
 
-Todas as composições, gravações e partituras aqui partilhadas são obras originais do autor (salvo indicação expressa em contrário, como peças em domínio público). Disponibilizadas para consulta e fins pedagógicos.
+Todas as composições, gravações e partituras originais aqui partilhadas são de **utilização livre para todos e para qualquer fim**, sob a licença **[CC0 1.0 Universal (Domínio Público)](https://creativecommons.org)**.
+
+All original compositions, recordings, and sheet music shared here are **free to use by everyone and for any purpose** under **[CC0 1.0 Universal (Public Domain)](https://creativecommons.org)**.
+
+---
+
+## ✉️ Contacto / Contact
+
+Para questões, comentários ou partilha de experiências pedagógicas: **jngilx@gmail.com**
